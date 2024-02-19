@@ -3,6 +3,7 @@ package com.sweng.sipscore5
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sweng.sipscore5.services.DatabaseService
 
@@ -22,9 +23,14 @@ class RegistrationActivity  : AppCompatActivity() {
         registerButton.setOnClickListener {
             val username = uTextField.text.toString()
             val password = pTextField.text.toString()
-            dbManager.registerUser(username, password)
-            finish()
 
+            if (dbManager.checkUserExists(username)) {
+                Toast.makeText(this, "Benutzer existiert bereits", Toast.LENGTH_SHORT).show()
+            } else {
+                dbManager.registerUser(username, password)
+                Toast.makeText(this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show()
+                finish()
+            }
         }
     }
 
