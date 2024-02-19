@@ -5,4 +5,5 @@
     <string name="username">Benutzername</string>
     <string name="password">Passwort</string>
     <string name="login_success">Erfolgreich eingeloggt!</string>
+    <string name="confirm_password">Passwort bestätigen:</string>
 </resources>

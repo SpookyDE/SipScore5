@@ -7,14 +7,14 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sweng.sipscore5.models.User
-import com.sweng.sipscore5.services.DatabaseService
+import com.sweng.sipscore5.services.UserService
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var uTextField: EditText
     private lateinit var pTextField: EditText
     private lateinit var loginBtn: Button
     private lateinit var user : User
-    private val dbManager = DatabaseService()
+    private val dbManager = UserService()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -34,8 +34,8 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Anmelden erfolgreich", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, AppActivity::class.java)
                 startActivity(intent)
+                finish()
             }
         }
-
     }
 }

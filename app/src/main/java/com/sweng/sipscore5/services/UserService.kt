@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.sql.ResultSet
 
-class DatabaseService {
+class UserService {
     private val url = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11682359"
     private val dbUser = "sql11682359"
     private val dbPassword = "PAj19BFVvG"
