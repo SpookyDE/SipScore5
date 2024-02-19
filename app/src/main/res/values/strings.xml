@@ -6,4 +6,7 @@
     <string name="password">Passwort</string>
     <string name="login_success">Erfolgreich eingeloggt!</string>
     <string name="confirm_password">Passwort bestätigen:</string>
+    <string name="profile">Profil</string>
+    <string name="rating">Ratings</string>
+    <string name="drink">Drinks</string>
 </resources>
