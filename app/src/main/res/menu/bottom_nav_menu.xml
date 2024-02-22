@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/ic_profile" />
+    <item
+        android:id="@+id/ratingsFragment"
+        android:title="@string/rankings"
+        android:icon="@drawable/ic_ratings" />
+    <item
+        android:id="@+id/drinksFragment"
+        android:title="@string/drinks"
+        android:icon="@drawable/ic_drinks" />
+</menu>

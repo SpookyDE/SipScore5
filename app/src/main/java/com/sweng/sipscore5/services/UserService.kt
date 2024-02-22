@@ -1,34 +1,22 @@
 package com.sweng.sipscore5.services
 
+import com.sweng.sipscore5.database.UserDAO
+import com.sweng.sipscore5.database.UserDAOImpl
 import com.sweng.sipscore5.models.User
-import java.sql.Connection
-import java.sql.DriverManager
-import java.sql.Statement
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import java.sql.ResultSet
+
 
 class UserService {
-    private val url = "jdbc:mysql://sql11.freesqldatabase.com:3306/sql11682359"
-    private val dbUser = "sql11682359"
-    private val dbPassword = "PAj19BFVvG"
+    private val dbManager : UserDAO = UserDAOImpl()
 
-    fun registerUser(username: String, password: String) {
+
+    fun registerUser(user : User) {
         runBlocking {
             launch(Dispatchers.IO) {
-                try {
-                    val connection: Connection = DriverManager.getConnection(url, dbUser, dbPassword)
-                    val statement: Statement = connection.createStatement()
-
-                    val sql = "INSERT INTO user (username, password) VALUES ('$username', '$password')"
-                    statement.executeUpdate(sql)
-
-                    connection.close()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                dbManager.addUser(user.username, user.password)
             }
         }
     }
@@ -37,48 +25,30 @@ class UserService {
         var exists = false
         runBlocking {
             launch(Dispatchers.IO) {
-                try {
-                    val connection: Connection = DriverManager.getConnection(url, dbUser, dbPassword)
-                    val statement: Statement = connection.createStatement()
-
-                    val sql = "SELECT * FROM user WHERE username='$username'"
-                    val resultSet: ResultSet = statement.executeQuery(sql)
-
-                    exists = resultSet.next()
-
-                    connection.close()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                if (dbManager.getUserByName(username) != null)
+                    exists = true
             }
         }
         return exists
     }
 
-    fun checkLoginCredentials(user : User): Boolean {
+    fun checkLoginCredentials(loggedUser : User): Boolean {
         var isValid = false
         runBlocking {
             launch(Dispatchers.IO) {
-                try {
-                    val connection: Connection = DriverManager.getConnection(url, dbUser, dbPassword)
-                    val statement: Statement = connection.createStatement()
-
-                    val checkUserQuery = "SELECT * FROM user WHERE username='${user.username}'"
-                    val userResultSet: ResultSet = statement.executeQuery(checkUserQuery)
-
-                    if (userResultSet.next()) {
-                        val storedPassword = userResultSet.getString("password")
-                        if (storedPassword == user.password) {
-                            isValid = true
-                        }
-                    }
-
-                    connection.close()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
+                val storedUser = dbManager.getUserByName(loggedUser.username)
+                if (storedUser!!.password == loggedUser.password)
+                    isValid = true
             }
         }
         return isValid
+    }
+
+    fun deregisterUser(user : User) {
+        runBlocking {
+            launch(Dispatchers.IO) {
+                dbManager.deleteUser(user.username)
+            }
+        }
     }
 }

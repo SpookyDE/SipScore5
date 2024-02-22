@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.sweng.sipscore5.models.User
 import com.sweng.sipscore5.services.UserService
 
 class RegistrationActivity  : AppCompatActivity() {
@@ -28,13 +29,14 @@ class RegistrationActivity  : AppCompatActivity() {
             val username = uTextField.text.toString()
             val password = pTextField.text.toString()
             val confirmedPassword = pcTextField.text.toString()
+            val user = User(username, password)
 
             if (dbManager.checkUserExists(username)) {
                 Toast.makeText(this, "Benutzer existiert bereits", Toast.LENGTH_SHORT).show()
             } else if (password != confirmedPassword) {
                 Toast.makeText(this, "Passwörter stimmen nicht überein", Toast.LENGTH_SHORT).show()
             } else {
-                dbManager.registerUser(username, password)
+                dbManager.registerUser(user)
                 Toast.makeText(this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show()
                 finish()
             }

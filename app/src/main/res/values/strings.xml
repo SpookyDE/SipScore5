@@ -9,4 +9,7 @@
     <string name="profile">Profil</string>
     <string name="rating">Ratings</string>
     <string name="drink">Drinks</string>
+    <string name="appname">SipScore</string>
+    <string name="drinks">Drinks</string>
+    <string name="rankings">Rankings</string>
 </resources>
