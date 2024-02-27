@@ -1,0 +1,26 @@
+<!-- navigation_graph.xml -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/drinksFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sweng.sipscore5.fragments.ProfileFragment"
+        android:label="Profil"
+        android:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/ratingsFragment"
+        android:name="com.sweng.sipscore5.fragments.RatingsFragment"
+        android:label="Ratings"
+        android:layout="@layout/fragment_ratings" />
+
+    <fragment
+        android:id="@+id/drinksFragment"
+        android:name="com.sweng.sipscore5.fragments.DrinksFragment"
+        android:label="Drinks"
+        android:layout="@layout/fragment_drinks" />
+
+
+</navigation>

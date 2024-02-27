@@ -12,4 +12,5 @@
     <string name="appname">SipScore</string>
     <string name="drinks">Drinks</string>
     <string name="rankings">Rankings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
