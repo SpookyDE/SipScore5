@@ -7,14 +7,15 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.sweng.sipscore5.models.User
 import com.sweng.sipscore5.services.UserService
+import com.sweng.sipscore5.services.UserServiceImpl
 
 class RegistrationActivity  : AppCompatActivity() {
     private lateinit var uTextField: EditText
     private lateinit var pTextField: EditText
     private lateinit var pcTextField: EditText
     private lateinit var registerButton: Button
+    private val userService : UserService = UserServiceImpl()
 
-    private val dbManager = UserService()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
@@ -31,12 +32,12 @@ class RegistrationActivity  : AppCompatActivity() {
             val confirmedPassword = pcTextField.text.toString()
             val user = User(username, password)
 
-            if (dbManager.checkUserExists(username)) {
+            if (userService.checkUserExists(username)) {
                 Toast.makeText(this, "Benutzer existiert bereits", Toast.LENGTH_SHORT).show()
             } else if (password != confirmedPassword) {
                 Toast.makeText(this, "Passwörter stimmen nicht überein", Toast.LENGTH_SHORT).show()
             } else {
-                dbManager.registerUser(user)
+                userService.registerUser(user)
                 Toast.makeText(this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show()
                 finish()
             }

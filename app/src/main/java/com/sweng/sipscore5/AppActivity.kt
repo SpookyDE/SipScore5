@@ -20,4 +20,9 @@ class AppActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNavigationView, navController)
 
     }
+
+    override fun onStop() {
+        super.onStop()
+        setContentView(R.layout.activity_main)
+    }
 }
