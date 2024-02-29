@@ -13,4 +13,6 @@
     <string name="drinks">Drinks</string>
     <string name="rankings">Rankings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="drinksearch">Getränkesuche</string>
+    <string name="rate">Bewerten</string>
 </resources>
