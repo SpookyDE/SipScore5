@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sweng.sipscore5.R
 import com.sweng.sipscore5.models.Drink
-import com.sweng.sipscore5.services.DrinkAdapter
+import com.sweng.sipscore5.adapter.DrinkAdapter
 import com.sweng.sipscore5.services.DrinkService
 import com.sweng.sipscore5.services.DrinkServiceImpl
 

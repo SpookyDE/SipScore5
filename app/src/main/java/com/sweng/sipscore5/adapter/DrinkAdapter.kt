@@ -1,4 +1,4 @@
-package com.sweng.sipscore5.services
+package com.sweng.sipscore5.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

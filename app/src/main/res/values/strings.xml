@@ -18,4 +18,13 @@
     <string name="settings">Einstellungen</string>
     <string name="edit_profile">Profil bearbeiten</string>
     <string name="switch_appearance">Erscheinungsbild wechseln</string>
+    <string name="top_5">Top 5</string>
+    <string name="bottom_5">Bottom 5</string>
+    <string-array name="drink_categories">
+        <item>Waters</item>
+        <item>Beers</item>
+        <item>Energy Drinks</item>
+        <item>Softdrinks</item>
+        <item>Spirits</item>
+    </string-array>
 </resources>

@@ -35,7 +35,7 @@ class DrinkDAOImpl : DrinkDAO {
         var connection: Connection? = null
         try {
             connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword)
-            val statement = connection.prepareStatement("SELECT * FROM drinks WHERE category='$category'")
+            val statement = connection.prepareStatement("SELECT * FROM drinks WHERE category=?")
             statement.setString(1, category)
             val resultSet = statement.executeQuery()
             while (resultSet.next()) {
