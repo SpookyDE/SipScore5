@@ -16,4 +16,6 @@
     <string name="drinksearch">Getränkesuche</string>
     <string name="rate">Bewerten</string>
     <string name="settings">Einstellungen</string>
+    <string name="edit_profile">Profil bearbeiten</string>
+    <string name="switch_appearance">Erscheinungsbild wechseln</string>
 </resources>

@@ -6,9 +6,9 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.sweng.sipscore5.fragments.ProfileFragment"
-        android:label="Profil"
-        android:layout="@layout/fragment_profile" />
+        android:name="com.sweng.sipscore5.fragments.SettingsFragment"
+        android:label="Einstellungen"
+        android:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/ratingsFragment"
