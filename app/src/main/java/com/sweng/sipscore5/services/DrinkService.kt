@@ -19,4 +19,8 @@ interface DrinkService {
     fun getSpirits() : List<Drink>
 
     fun calculateRating(userRating : Int) : Int
+
+    fun getTopList(drinkListByCategory : List<Drink>) : List<Drink>
+
+    fun getFlopList(drinkListByCategory: List<Drink>) : List<Drink>
 }

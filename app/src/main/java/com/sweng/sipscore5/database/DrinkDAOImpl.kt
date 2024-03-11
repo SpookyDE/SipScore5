@@ -19,8 +19,9 @@ class DrinkDAOImpl : DrinkDAO {
                 val id = resultSet.getInt("id")
                 val name = resultSet.getString("name")
                 val category = resultSet.getString("category")
+                val company = resultSet.getString("company")
                 val rating = resultSet.getInt("rating")
-                drinks.add(Drink(id, name, category, rating))
+                drinks.add(Drink(id, name, category, company, rating))
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -42,7 +43,8 @@ class DrinkDAOImpl : DrinkDAO {
                 val id = resultSet.getInt("id")
                 val name = resultSet.getString("name")
                 val rating = resultSet.getInt("rating")
-                drinks.add(Drink(id, name, category, rating))
+                val company = resultSet.getString("company")
+                drinks.add(Drink(id, name, category, company, rating))
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -64,8 +66,9 @@ class DrinkDAOImpl : DrinkDAO {
             if (resultSet.next()) {
                 val name = resultSet.getString("name")
                 val category = resultSet.getString("category")
+                val company = resultSet.getString("company")
                 val rating = resultSet.getInt("rating")
-                drink = Drink(drinkId, name, category, rating)
+                drink = Drink(drinkId, name, category, company, rating)
             }
         } catch (e: Exception) {
             e.printStackTrace()

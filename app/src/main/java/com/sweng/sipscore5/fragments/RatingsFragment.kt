@@ -19,7 +19,8 @@ import com.sweng.sipscore5.services.DrinkServiceImpl
 class RatingsFragment : Fragment() {
 
     private lateinit var categorySpinner: Spinner
-    private lateinit var recyclerView: RecyclerView
+    private lateinit var topRecyclerView: RecyclerView
+    private lateinit var flopRecyclerView: RecyclerView
     private val drinkService : DrinkService = DrinkServiceImpl()
 
     override fun onCreateView(
@@ -29,8 +30,11 @@ class RatingsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_ratings, container, false)
 
         categorySpinner = view.findViewById(R.id.category_spinner)
-        recyclerView = view.findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        topRecyclerView = view.findViewById(R.id.topRecyclerView)
+        flopRecyclerView = view.findViewById(R.id.flopRecyclerView)
+
+        topRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        flopRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -44,11 +48,26 @@ class RatingsFragment : Fragment() {
         categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 when (parent.getItemAtPosition(position).toString()) {
-                    "Waters" -> showDrinks(drinkService.getWaters())
-                    "Beers" -> showDrinks(drinkService.getBeers())
-                    "Energy Drinks" -> showDrinks(drinkService.getEnergyDrinks())
-                    "Softdrinks" -> showDrinks(drinkService.getSoftdrinks())
-                    "Spirits" -> showDrinks(drinkService.getSpirits())
+                    "Waters" -> {
+                        showDrinks(topRecyclerView, drinkService.getTopList(drinkService.getWaters()))
+                        showDrinks(flopRecyclerView, drinkService.getFlopList(drinkService.getWaters()))
+                    }
+                    "Beers" -> {
+                        showDrinks(topRecyclerView, drinkService.getTopList(drinkService.getBeers()))
+                        showDrinks(flopRecyclerView, drinkService.getFlopList(drinkService.getBeers()))
+                    }
+                    "Energy Drinks" -> {
+                        showDrinks(topRecyclerView, drinkService.getTopList(drinkService.getEnergyDrinks()))
+                        showDrinks(flopRecyclerView, drinkService.getFlopList(drinkService.getEnergyDrinks()))
+                    }
+                    "Softdrinks" -> {
+                        showDrinks(topRecyclerView, drinkService.getTopList(drinkService.getSoftdrinks()))
+                        showDrinks(flopRecyclerView, drinkService.getFlopList(drinkService.getSoftdrinks()))
+                    }
+                    "Spirits" -> {
+                        showDrinks(topRecyclerView, drinkService.getTopList(drinkService.getSpirits()))
+                        showDrinks(flopRecyclerView, drinkService.getFlopList(drinkService.getSpirits()))
+                    }
                 }
             }
 
@@ -59,7 +78,7 @@ class RatingsFragment : Fragment() {
         return view
     }
 
-    private fun showDrinks(drinks: List<Drink>) {
+    private fun showDrinks(recyclerView: RecyclerView, drinks: List<Drink>) {
         val adapter = RatingsAdapter(drinks)
         recyclerView.adapter = adapter
     }

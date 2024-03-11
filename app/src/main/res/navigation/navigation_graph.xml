@@ -5,10 +5,13 @@
     app:startDestination="@id/drinksFragment">
 
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/settingsFragment"
         android:name="com.sweng.sipscore5.fragments.SettingsFragment"
         android:label="Einstellungen"
         android:layout="@layout/fragment_settings" />
+    <action
+        android:id="@+id/action_settingsFragment_to_profileFragment"
+        app:destination="@id/profileFragment" />
 
     <fragment
         android:id="@+id/ratingsFragment"
@@ -21,6 +24,12 @@
         android:name="com.sweng.sipscore5.fragments.DrinksFragment"
         android:label="Drinks"
         android:layout="@layout/fragment_drinks" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sweng.sipscore5.fragments.ProfileFragment"
+        android:label="Profil"
+        android:layout="@layout/fragment_profile" />
 
 
 </navigation>

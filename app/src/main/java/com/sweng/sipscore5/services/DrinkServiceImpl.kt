@@ -62,7 +62,7 @@ class DrinkServiceImpl : DrinkService {
         var drinks = mutableListOf<Drink>()
         runBlocking {
             launch(Dispatchers.IO) {
-                drinks = dbManager.getAllDrinksByCategory("Softdrink")!!
+                drinks = dbManager.getAllDrinksByCategory("Softdrinks")!!
             }
         }
         return drinks
@@ -80,6 +80,16 @@ class DrinkServiceImpl : DrinkService {
 
     override fun calculateRating(userRating: Int): Int {
         TODO("Not yet implemented")
+    }
+
+    override fun getTopList(drinkListByCategory: List<Drink>): List<Drink> {
+        val sortedDrinks = drinkListByCategory.sortedByDescending { it.rating }
+        return sortedDrinks.take(5)
+    }
+
+    override fun getFlopList(drinkListByCategory: List<Drink>): List<Drink> {
+        val sortedDrinks = drinkListByCategory.sortedByDescending { it.rating }
+        return sortedDrinks.takeLast(5).reversed()
     }
 
 

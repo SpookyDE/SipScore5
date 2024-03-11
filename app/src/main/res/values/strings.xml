@@ -20,6 +20,8 @@
     <string name="switch_appearance">Erscheinungsbild wechseln</string>
     <string name="top_5">Top 5</string>
     <string name="bottom_5">Bottom 5</string>
+    <string name="logout">Ausloggen</string>
+    <string name="logged_in_as">Eingeloggt als</string>
     <string-array name="drink_categories">
         <item>Waters</item>
         <item>Beers</item>
