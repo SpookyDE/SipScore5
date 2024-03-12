@@ -60,7 +60,7 @@ class DrinkDAOImpl : DrinkDAO {
         var connection: Connection? = null
         try {
             connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword)
-            val statement = connection.prepareStatement("SELECT * FROM drinks WHERE id='$drinkId'")
+            val statement = connection.prepareStatement("SELECT * FROM drinks WHERE id=?")
             statement.setInt(1, drinkId)
             val resultSet = statement.executeQuery()
             if (resultSet.next()) {
@@ -78,9 +78,18 @@ class DrinkDAOImpl : DrinkDAO {
         return drink
     }
 
-
     override fun updateRating(drinkId: Int, newRating: Int) {
-        TODO("Not yet implemented")
+        var connection : Connection? = null
+        try {
+            connection = DriverManager.getConnection(dbUrl, dbUser, dbPassword)
+            val statement = connection.prepareStatement("UPDATE drinks SET rating = ? WHERE id = ?")
+            statement.setInt(1, newRating)
+            statement.setInt(2, drinkId)
+            statement.executeUpdate()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            connection?.close()
+        }
     }
-
 }

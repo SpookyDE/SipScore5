@@ -10,5 +10,5 @@ interface DrinkDAO {
 
     fun getDrinkById(drinkId : Int) : Drink?
 
-    fun updateRating(drinkId: Int, newRating : Int)
+    fun updateRating(drinkId : Int, newRating : Int)
 }

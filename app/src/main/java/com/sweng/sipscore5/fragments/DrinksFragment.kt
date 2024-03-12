@@ -1,5 +1,6 @@
 package com.sweng.sipscore5.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,7 +32,10 @@ class DrinksFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_drinks, container, false)
         drinkList = drinkService.getAllDrinks()
-        drinkAdapter = DrinkAdapter(requireContext(), drinkList)
+        val sharedPref = requireActivity().getSharedPreferences("LoginPreferences", Context.MODE_PRIVATE)
+        val username = sharedPref.getString("username", null)
+
+        drinkAdapter = DrinkAdapter(requireContext(), drinkList, username!!)
 
         searchEditText = view.findViewById(R.id.editTextSearch)
         recyclerView = view.findViewById(R.id.recyclerView)

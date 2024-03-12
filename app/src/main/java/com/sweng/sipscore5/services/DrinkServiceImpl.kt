@@ -78,9 +78,14 @@ class DrinkServiceImpl : DrinkService {
         return drinks
     }
 
-    override fun calculateRating(userRating: Int): Int {
-        TODO("Not yet implemented")
+    override fun updateRating(drinkId : Int, userRating: Int) {
+        runBlocking {
+            launch(Dispatchers.IO) {
+                dbManager.updateRating(drinkId, userRating)
+            }
+        }
     }
+
 
     override fun getTopList(drinkListByCategory: List<Drink>): List<Drink> {
         val sortedDrinks = drinkListByCategory.sortedByDescending { it.rating }
