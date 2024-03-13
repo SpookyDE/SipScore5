@@ -11,13 +11,7 @@
         android:layout="@layout/fragment_settings" />
     <action
         android:id="@+id/action_settingsFragment_to_profileFragment"
-        app:destination="@id/profileFragment" />
-
-    <fragment
-        android:id="@+id/ratingsFragment"
-        android:name="com.sweng.sipscore5.fragments.RatingsFragment"
-        android:label="Ratings"
-        android:layout="@layout/fragment_ratings" />
+        app:destination="@id/accountFragment" />
 
     <fragment
         android:id="@+id/drinksFragment"
@@ -26,10 +20,17 @@
         android:layout="@layout/fragment_drinks" />
 
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.sweng.sipscore5.fragments.ProfileFragment"
+        android:id="@+id/ratingsFragment"
+        android:name="com.sweng.sipscore5.fragments.RatingsFragment"
+        android:label="Ratings"
+        android:layout="@layout/fragment_ratings" />
+
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.sweng.sipscore5.fragments.AccountFragment"
         android:label="Profil"
-        android:layout="@layout/fragment_profile" />
+        android:layout="@layout/fragment_account" />
 
 
 </navigation>

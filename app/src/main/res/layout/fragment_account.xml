@@ -1,14 +1,14 @@
-<!-- res/layout/activity_login.xml -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appname"
+        android:text="@string/editAccount"
         android:textSize="24sp"
         android:textStyle="bold"
         android:fontFamily="sans-serif"
@@ -19,9 +19,11 @@
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:hint="@string/username"
-        android:importantForAutofill="no"
         android:inputType="text"
-        android:minHeight="48dp" />
+        android:maxLines="1"
+        android:maxLength="10"
+        android:minHeight="48dp"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -29,15 +31,29 @@
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
         android:hint="@string/password"
-        android:importantForAutofill="no"
         android:inputType="textPassword"
-        android:minHeight="48dp" />
+        android:maxLines="1"
+        android:maxLength="12"
+        android:minHeight="48dp"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/confirmPasswordEditText"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:maxLength="12"
+        android:minHeight="48dp"
+        android:importantForAutofill="no" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="@string/confirm_changes"
         android:layout_marginTop="16dp" />
 
 </LinearLayout>

@@ -4,11 +4,11 @@
         android:title="@string/settings"
         android:icon="@drawable/ic_settings" />
     <item
-        android:id="@+id/ratingsFragment"
-        android:title="@string/rankings"
-        android:icon="@drawable/ic_ratings" />
-    <item
         android:id="@+id/drinksFragment"
         android:title="@string/drinks"
         android:icon="@drawable/ic_drinks" />
+    <item
+        android:id="@+id/ratingsFragment"
+        android:title="@string/rankings"
+        android:icon="@drawable/ic_ratings" />
 </menu>

@@ -2,8 +2,12 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SipScore5" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">@color/lighter_blue</item>
     </style>
 
-    <style name="Theme.SipScore5" parent="Base.Theme.SipScore5" />
+    <style name="Theme.SipScore5" parent="Base.Theme.SipScore5">
+        <item name="colorPrimary">@color/darker_blue</item>
+        <item name="colorPrimaryDark">@color/blue</item>
+        <item name="colorAccent">@color/lighter_blue</item>
+    </style>
 </resources>

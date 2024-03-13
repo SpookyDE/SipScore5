@@ -26,7 +26,7 @@ class SettingsFragment : Fragment() {
 
         val editProfileButton = view.findViewById<Button>(R.id.button_edit_profile)
         editProfileButton.setOnClickListener {
-                findNavController().navigate(R.id.profileFragment)
+                findNavController().navigate(R.id.accountFragment)
         }
 
         val logoutButton = view.findViewById<Button>(R.id.button_logout)

@@ -2,6 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.SipScore5" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    </style>
+    <style name="Theme.SipScore5" parent="Base.Theme.SipScore5">
+        <item name="colorPrimary">@color/darker_blue</item>
+        <item name="colorPrimaryDark">@color/darker_blue</item>
+        <item name="colorAccent">@color/lighter_blue</item>
     </style>
 </resources>

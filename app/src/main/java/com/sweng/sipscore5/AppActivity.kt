@@ -2,6 +2,7 @@ package com.sweng.sipscore5
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
@@ -23,7 +24,7 @@ class AppActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        setContentView(R.layout.activity_main)
+        Toast.makeText(this, "Ausgeloggt", Toast.LENGTH_SHORT).show()
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
