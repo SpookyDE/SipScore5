@@ -26,6 +26,9 @@
     <string name="confirm_changes">Änderungen bestätigen</string>
     <string name="flop">FLOP</string>
     <string name="top">TOP</string>
+    <string name="delete_account">Account löschen</string>
+    <string name="oldPassword">Altes Passwort</string>
+    <string name="newPassword">Neues Passwort</string>
     <string-array name="drink_categories">
         <item>Wasser</item>
         <item>Biere</item>

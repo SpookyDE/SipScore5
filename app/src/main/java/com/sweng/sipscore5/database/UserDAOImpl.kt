@@ -47,6 +47,20 @@ class UserDAOImpl : UserDAO {
         return user
     }
 
+    override fun changePassword(username: String, password: String) {
+        try {
+            val connection: Connection = DriverManager.getConnection(url, dbUser, dbPassword)
+            val statement: Statement = connection.createStatement()
+
+            val sql = "UPDATE user SET password='$password' WHERE username='$username'"
+            statement.executeUpdate(sql)
+
+            connection.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     override fun deleteUser(username: String) {
         try {
             val connection: Connection = DriverManager.getConnection(url, dbUser, dbPassword)

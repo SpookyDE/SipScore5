@@ -5,4 +5,5 @@
     <color name="blue">#03A9F4</color>
     <color name="darker_blue">#2196F3</color>
     <color name="lighter_blue">#89F2FF</color>
+    <color name="red">#FF0000</color>
 </resources>

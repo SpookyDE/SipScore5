@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+
 import com.sweng.sipscore5.R
 import com.sweng.sipscore5.models.Drink
 import com.sweng.sipscore5.services.DrinkService
@@ -42,11 +43,13 @@ class DrinkAdapter(private val context: Context, private var drinkList: List<Dri
     }
 
     inner class DrinkViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val ratingTextView: TextView = itemView.findViewById(R.id.textViewRating)
         private val nameTextView: TextView = itemView.findViewById(R.id.textViewName)
         private val buttonRate: Button = itemView.findViewById(R.id.buttonRate)
 
         fun bind(drink: Drink) {
             nameTextView.text = drink.name
+            ratingTextView.text = drink.company
             buttonRate.setOnClickListener {
                 showRatingDialog(drink)
             }
@@ -57,7 +60,7 @@ class DrinkAdapter(private val context: Context, private var drinkList: List<Dri
             val dialogView = LayoutInflater.from(context).inflate(R.layout.rating_dialog, null)
             val alertDialogBuilder = AlertDialog.Builder(context)
                 .setView(dialogView)
-                .setTitle("Bewerten Sie ${drink.name}")
+                .setTitle("Aktuelle Bewertung: ${drink.rating}")
 
             val ratingSeekBar = dialogView.findViewById<SeekBar>(R.id.seekBarRating)
             val ratingTextView = dialogView.findViewById<TextView>(R.id.textViewRating)
@@ -82,6 +85,7 @@ class DrinkAdapter(private val context: Context, private var drinkList: List<Dri
                 }
                 val newRating = ratingService.calculateRating(drink.id)!!
                 drinkService.updateRating(drink.id, newRating)
+                updateList(drinkService.getAllDrinks())
                 dialog.dismiss()
             }
 

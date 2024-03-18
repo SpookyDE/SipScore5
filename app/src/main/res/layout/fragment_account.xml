@@ -20,17 +20,18 @@
         android:layout_height="70dp"
         android:hint="@string/username"
         android:inputType="text"
+        android:enabled="false"
         android:maxLines="1"
         android:maxLength="10"
         android:minHeight="48dp"
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/passwordEditText"
+        android:id="@+id/newPasswordEditText"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/password"
+        android:hint="@string/oldPassword"
         android:inputType="textPassword"
         android:maxLines="1"
         android:maxLength="12"
@@ -38,16 +39,17 @@
         android:importantForAutofill="no" />
 
     <EditText
-        android:id="@+id/confirmPasswordEditText"
+        android:id="@+id/oldPasswordEditText"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/confirm_password"
+        android:hint="@string/newPassword"
         android:inputType="textPassword"
         android:maxLines="1"
         android:maxLength="12"
         android:minHeight="48dp"
         android:importantForAutofill="no" />
+
 
     <Button
         android:id="@+id/registerButton"

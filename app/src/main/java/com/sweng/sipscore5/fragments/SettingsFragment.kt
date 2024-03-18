@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.sweng.sipscore5.R
+import com.sweng.sipscore5.services.UserService
+import com.sweng.sipscore5.services.UserServiceImpl
 
 class SettingsFragment : Fragment() {
-
+    private val userService : UserService = UserServiceImpl()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,6 +35,17 @@ class SettingsFragment : Fragment() {
         val logoutButton = view.findViewById<Button>(R.id.button_logout)
         logoutButton.setOnClickListener {
             requireActivity().finish()
+        }
+
+        val deleteButton = view.findViewById<Button>(R.id.button_delete_account)
+        deleteButton.setOnClickListener{
+            if (username != null) {
+                userService.deregisterUser(username)
+                requireActivity().finish()
+                Toast.makeText(requireContext(), "Account gelöscht.",Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(requireContext(), "Account konnte nicht gelöscht werden.",Toast.LENGTH_SHORT).show()
+            }
         }
 
         return view

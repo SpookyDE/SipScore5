@@ -7,6 +7,8 @@ interface UserDAO {
 
     fun getUserByName (username : String) : User?
 
+    fun changePassword (username : String, password : String)
+
     fun deleteUser (username : String)
 
 }

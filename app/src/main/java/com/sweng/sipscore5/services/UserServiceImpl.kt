@@ -37,18 +37,42 @@ class UserServiceImpl : UserService {
         runBlocking {
             launch(Dispatchers.IO) {
                 val storedUser = dbManager.getUserByName(loggedUser.username)
-                if (storedUser!!.password == loggedUser.password)
-                    isValid = true
+                if (storedUser !=null) {
+                    if (storedUser.password == loggedUser.password) {
+                        isValid = true
+                    }
+                }
             }
         }
         return isValid
     }
 
-    override fun deregisterUser(user : User) {
+    override fun deregisterUser(user : String) {
         runBlocking {
             launch(Dispatchers.IO) {
-                dbManager.deleteUser(user.username)
+                dbManager.deleteUser(user)
             }
         }
+    }
+
+    override fun changePassword(username : String, newPassword: String) {
+        runBlocking {
+            launch(Dispatchers.IO) {
+                dbManager.changePassword(username, newPassword)
+            }
+        }
+    }
+
+    override fun checkOldPassword(username: String, oldPassword : String): Boolean {
+        var isValid = false
+        runBlocking {
+            launch(Dispatchers.IO) {
+                val user = dbManager.getUserByName(username)!!
+                if (user.password == oldPassword) {
+                    isValid = true
+                }
+            }
+        }
+        return isValid
     }
 }
